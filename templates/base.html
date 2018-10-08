@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+    <style>
+        html { background-color: #6C648B; }
+        body { font-family: "Trebuchet MS", Helvetica, sans-serif; font-size: 1.2em; margin-left: 15%; margin-top: 10%; }
+        h1 { font-size: 3em; color: #FFF; }
+        td { padding: 10px 30px 10px 30px; background-color: #6BBAA7; border: #6BBAA7; }
+        table { border-spacing: 0px; }
+        .error { color: pink; font-size: .8em; margin: 0px; background-color: #6C648B !important; }
+        .submit { border: 0px; background-color: #FBA100; color: #FFF; padding: 10px; border-radius: 15px; float: right; width: 70%; 
+            font-family: "Trebuchet MS", Helvetica, sans-serif; font-size: 0.8em; }
+        .top { padding-top: 20px; background-color: #6BBAA7; border: #6BBAA7; }
+        .top-error { padding-top: 30px; color: pink; font-size: .8em; margin: 0px; background-color: #6C648B !important; }
+        .bottom { padding-bottom: 30px; background-color: #6BBAA7; border: #6BBAA7; }
+        input { border: none; padding: 5px; height: 100%; font-size: 0.9em; }
+        .welcome { font-size: 5em; }
+    </style>
+    <title>{{title}}</title>
+</head>
+<body>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
