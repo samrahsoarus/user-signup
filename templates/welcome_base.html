@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+<head>
+    <style>
+        html { background-color: #6C648B; background-image: {{url_for('static', filename='images/sunset.jpg')}} }
+        body { font-family: "Trebuchet MS", Helvetica, sans-serif; margin-left: 15%; margin-top: 10%; }
+        .welcome { font-size: 5em; color: #FFF}
+    </style>
+    <title>{{title}}</title>
+</head>
+<body>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

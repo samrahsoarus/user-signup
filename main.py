@@ -1,9 +1,9 @@
-from flask import Flask, request, redirect, render_template
+from flask import Flask, request, redirect, render_template, url_for
 import validators
 import cgi
 import os
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
 app.config['DEBUG'] = True
 
 
@@ -33,17 +33,8 @@ def submission():
     vpassword_error = errors['vpassword']
     email_error = errors['email']
 
-#===================================================================================================================================
-    # username_error = ''
-    # password_error = ''
-    # vpassword_error = ''
-    # email_error = ''
-    # username = 'Samrah'
-#===================================================================================================================================
-
     if username_error == '' and password_error == '' and vpassword_error == '' and email_error == '' :
-        #return redirect('/welcome', thename=username)
-        return redirect('/welcome?username={0}'.format(username))
+        return redirect(url_for('result', thename=username))
     else:
         return render_template('form.html', title="Signup", username=username, password=password, vpassword=vpassword, email=email,
         username_error=username_error, password_error=password_error, vpassword_error=vpassword_error, email_error=email_error)
@@ -51,10 +42,8 @@ def submission():
 
 @app.route('/welcome', methods=['POST','GET'])
 def result():
-        #return render_template('welcome.html', username=username)
-        username = request.args.get("username")
-        html_style = '<html style="font-size: 5em; font-family: Trebuchet MS, Helvetica, sans-serif; background-color: #6C648B; color: #FFF; margin-left: 15%; margin-top: 10%;"> '
-        return html_style + ' Welcome, {0} ! </html>'.format(username)
+        username = request.args.get("thename")
+        return render_template('welcome.html', username=username)
 
 
 app.run()
